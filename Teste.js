@@ -1,2 +1,1 @@
-confirm.log("teste");
-confirm.log("teste")
+console.log("teste");
