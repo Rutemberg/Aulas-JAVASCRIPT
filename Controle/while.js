@@ -13,3 +13,16 @@ while (opcao != 1) {
 }
 
 console.log("FIM " + valorfinal)
+
+// do while
+
+opcao = 1
+valorfinal = 1
+
+do {
+    opcao = getNumberRandom(1, 10)
+    console.log(`A opção escolhida foi: ${opcao}`)
+    valorfinal += opcao
+} while (opcao != 1)
+
+console.log("FIM " + valorfinal)
