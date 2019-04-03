@@ -6,6 +6,7 @@ aprovados.forEach(function (value, key) {
 
 aprovados.forEach(value => console.log(value))
 
+// Funcionamento interno foreach
 Array.prototype.forEach2 = function (callback) {
     for (let index = 0; index < this.length; index++) {
         callback(this[index], index, this)
