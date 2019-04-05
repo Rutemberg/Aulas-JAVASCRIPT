@@ -1,3 +1,1 @@
-const getSalario = funcionarios => funcionarios.salario
-// const min = funcionarios => Math.min(funcionarios)
-// console.log(funcionarios)
+    // console.log(funcionarios.filter(pais).filter(sexo))
