@@ -1,0 +1,3 @@
+npm init -y -> para iniciar o arquivo package.json
+npm i --save nome_da_biblioteca
+npm i --save-dev nodemon
