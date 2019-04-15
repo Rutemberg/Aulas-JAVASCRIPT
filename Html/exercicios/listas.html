@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Lista de Definicao-->
+    <dl>
+      <dt>Bass</dt>
+      <dd>backend como servico</dd>
+      <dt>Bass</dt>
+      <dd>backend como servico</dd>
+    </dl>
+
+    <!-- Lista não ordenadas-->
+
+    <ul class="tree">
+      <li>
+        <span wb-folder>item 1</span>
+        <ul>
+          <li>item 1.0</li>
+          <li>item 1.1</li>
+          <li>item 1.2</li>
+        </ul>
+      </li>
+      <li>
+        <span wb-folder>item 2</span>
+        <ul>
+          <li>
+            <span wb-folder>item 2.0</span>
+            <ul>
+              <li>item 2.0.0</li>
+              <li>item 2.0.1</li>
+              <li>item 2.0.2</li>
+            </ul>
+          </li>
+          <li>item 2.1</li>
+          <li>item 2.2</li>
+        </ul>
+      </li>
+      <li>
+        <span wb-folder>item 3</span>
+        <ul>
+          <li>item 3.0</li>
+          <li>item 3.1</li>
+          <li>item 3.2</li>
+        </ul>
+      </li>
+    </ul>
+    <link
+      rel="stylesheet"
+      href="http://files.cod3r.com.br/curso-web/tree.css"
+    />
+    <script>
+      document.querySelectorAll("[wb-folder]").forEach(folder => {
+        folder.onclick = function(e) {
+          const ul = folder.nextElementSibling;
+          const d = ul.style.display;
+          ul.style.display = d === "none" ? "block" : "none";
+        };
+      });
+    </script>
+  </body>
+</html>
