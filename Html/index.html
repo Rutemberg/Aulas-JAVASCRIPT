@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Excercicios HTML</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>Excercicios HTML</h1>
+      <h1>Excercicios HTML</h1>
     </header>
     <nav>
-        <a href wm-nav="exercicios/test.html">00 - teste </a>
+      <a href wm-nav="exercicios/test.html">00 - teste </a>
     </nav>
     <section id="conteudo"></section>
     <footer>
-        Curso web moderno
+      Curso web moderno
     </footer>
     <script>
-        //seleciona todas as tags do tipo link
-        document.querySelectorAll("[wm-nav]").forEach(link => {
-            const conteudo = document.getElementById("conteudo")
-            link.onclick = function (e) {
-                e.preventDefault()//previne a acao de links
-                //fetch(link.href)//funcao promise de requisiçao ajax
-                fetch(link.getAttribute("wm-nav"))
-                .then(resp => resp.text())//retorna resposta em html
-                .then(html => conteudo.innerHTML = html)//substitui o conteudo recebido no elemento de id conteudo
-            }
-        })
+      //seleciona todas as tags do tipo link
+      document.querySelectorAll("[wm-nav]").forEach(link => {
+        const conteudo = document.getElementById("conteudo");
+        link.onclick = function(e) {
+          e.preventDefault(); //previne a acao de links
+          //fetch(link.href)//funcao promise de requisiçao ajax
+          fetch(link.getAttribute("wm-nav"))
+            .then(resp => resp.text()) //retorna resposta em html
+            .then(html => (conteudo.innerHTML = html)); //substitui o conteudo recebido no elemento de id conteudo
+        };
+      });
     </script>
-</body>
-
+  </body>
 </html>
