@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Formulario</h1>
+    <form method="GET">
+        <input type="hidden" name="id" value="3">
+      <input type="text" name="nome" placeholder="Nome" />
+      <input type="password" name="senha" />
+      <textarea name="bio" id="" cols="30" rows="10"></textarea>
+      <input type="radio" name="tipo" value="Admin" />Admin
+      <input type="radio" name="tipo" value="Regular" />Regular
+      <input type="checkbox" name="ativo" />Ativo
+
+      <select name="estado">
+        <option value="">Selecione</option>
+        <option value="ac">Ceara</option>
+        <option value="df">Distrito Federal</option>
+        <option value="ba">Bahia</option>
+      </select>
+
+      <select name="Linguagens" multiple size="5">
+        <option value="Php">PHP</option>
+        <option value="Js">Java Script</option>
+        <option value="Py">Python</option>
+        <option value="Rb">Ruby</option>
+        <option value="C">C</option>
+      </select>
+
+      <input formaction="http://localhost:8081/usuarios" type="submit" value="enviar"/>
+      <input formaction="http://localhost:8081/usuarios/3" type="submit" value="alterar"/>
+    </form>
+    <style>
+      input,
+      select,
+      textarea {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="radio"],
+      input[type="checkbox"] {
+        display: inline;
+      }
+    </style>
+  </body>
+</html>
