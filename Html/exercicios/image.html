@@ -1,0 +1,107 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Image</title>
+  </head>
+
+  <body>
+    <div wm-slider>
+      <p>
+        <img
+          src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
+          alt="Muro da cidade"
+          width="513"
+          height="342"
+        />
+      </p>
+
+      <p>
+        <img
+          src="http://files.cod3r.com.br/curso-web/imagem2.gif"
+          height="342"
+        />
+      </p>
+
+      <p class="circular">
+        <img
+          src="http://files.cod3r.com.br/curso-web/imagem3.png"
+          height="342"
+        />
+      </p>
+
+      <p class="texto">
+        <img
+          src="http://files.cod3r.com.br/curso-web/avatar.jpg"
+          height="50"
+          align="left"
+        />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+        vestibulum, orci in imperdiet finibus, ex ante mattis libero, in luctus
+        sapien dui in turpis.
+      </p>
+
+      <p class="cidade"></p>
+
+      <p>
+        <picture>
+          <source
+            srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+            media="(min-width: 600px)"
+          />
+          <img
+            src="http://files.cod3r.com.br/curso-web/logo-estreita.jpg"
+            alt="Logo"
+          />
+        </picture>
+      </p>
+    </div>
+
+    <script>
+      function mover(elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo;
+        if (novoInicio >= fim) {
+          elem.style.left = novoInicio + 'px';
+          setTimeout(() => mover(elem, inicio, fim, passo, callback), 7);
+        } else {
+          callback();
+        }
+      }
+
+      const p = document.querySelector("[wm-slider] p");
+      p.style.display = "block";
+      mover(p, 1500, -400, 5, () => {
+        console.log("Terminou");
+      });
+    </script>
+
+    <style>
+      p {
+        position: absolute;
+        display: none;
+      }
+      .circular {
+        width: 513px;
+        background-color: #444;
+      }
+
+      .texto {
+        width: 400px;
+      }
+
+      .texto img {
+        margin: 010px;
+      }
+
+      .cidade {
+        width: 513px;
+        height: 342;
+        background-image: url("http://files.cod3r.com.br/curso-web/imagem4.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </body>
+</html>
