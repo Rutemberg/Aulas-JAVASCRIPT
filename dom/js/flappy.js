@@ -54,7 +54,7 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
     new ParDeBarreiras(altura, abertura, largura + espaco * 3)
   ];
 
-  const deslocamento = 1;
+  const deslocamento = 3;
   this.animar = () => {
     this.pares.forEach(par => {
       par.setX(par.getX() - deslocamento);
@@ -68,15 +68,47 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
       const meio = largura / 2;
       const cruzouOMeio =
         par.getX() + deslocamento >= meio && par.getX() < meio;
-        if(cruzouOMeio) notificarPonto()
+      if (cruzouOMeio) notificarPonto();
     });
   };
 }
 
-const barreiras = new Barreiras(500, 1200, 200, 400)
-const areaDoJogo = document.querySelector("[wm-flappy]")
-barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
+function Passaro(alturaJogo) {
+  let voando = false;
+
+  this.elemento = novoElemento("img", "passaro");
+  this.elemento.src = "imgs/passaro.png";
+
+  this.getY = () => parseInt(this.elemento.style.bottom.split("px")[0]);
+  this.setY = y => (this.elemento.style.bottom = `${y}px`);
+
+  window.onkeydown = e => (voando = true);
+  window.onkeyup = e => (voando = false);
+
+  this.animar = () => {
+    const novoY = this.getY() + (voando ? 8 : -5);
+    const alturaMax = alturaJogo - this.elemento.clientHeight;
+
+    if (novoY <= 0) {
+      this.setY(0);
+    } else if (novoY >= alturaMax) {
+      this.setY(alturaMax);
+    } else {
+      this.setY(novoY);
+    }
+  };
+
+  this.setY(alturaJogo / 2);
+}
+
+const barreiras = new Barreiras(500, 1200, 200, 400);
+const passaro = new Passaro(500);
+const areaDoJogo = document.querySelector("[wm-flappy]");
+
+areaDoJogo.appendChild(passaro.elemento);
+barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento));
 
 setInterval(() => {
-    barreiras.animar()
-},5);
+  barreiras.animar();
+  passaro.animar();
+}, 20);
