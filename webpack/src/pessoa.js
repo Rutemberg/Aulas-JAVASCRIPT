@@ -1,5 +1,7 @@
+import "./modulos/moduloA"
+
 export default class Pessoa {
     ola () {
-        return "Ola!"
+        return "Bom dia!"
     }
 }
