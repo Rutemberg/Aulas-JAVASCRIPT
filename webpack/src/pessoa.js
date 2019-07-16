@@ -1,7 +1,7 @@
-import "./modulos/moduloA"
+import './modulos/moduloA'
 
 export default class Pessoa {
-    ola () {
-        return "Bom dia!"
+    cumprimentar() {
+        return 'Bom dia!'
     }
 }
