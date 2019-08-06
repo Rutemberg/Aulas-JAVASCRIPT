@@ -13,27 +13,32 @@
             grid-template-rows: 95px 1fr 55px;
             grid-template-areas: "cabecalho cabecalho" "menu conteudo" "rodape rodape";
         }
+
         header {
             grid-area: cabecalho;
             background-color: #fff;
             color: #000;
             padding-left: 20px;
         }
+
         aside.menu {
             grid-area: menu;
         }
+
         main {
             grid-area: conteudo;
             background-color: #dedede;
             color: #000;
             padding: 10px;
         }
+
         footer {
             grid-area: rodape;
             background-color: #fff;
             color: #000;
             padding-left: 20px;
         }
+
         a {
             text-decoration: none;
             color: white;
@@ -80,15 +85,22 @@
     <script>
         const comBorda = { 'border': 'solid 8px orange' }
         const semBorda = { 'border': 'none' }
+
         $('a[href="#link3"]').parent().css(comBorda).css(semBorda)
+
         $('li:last').prev().css(comBorda).css(semBorda)
         $('a[href="#link3"]').parent().next().css(comBorda).css(semBorda)
+
         $('a[href="#link1"]').parents().css(comBorda).css(semBorda)
         $('a[href="#link1"]').parentsUntil($('body')).css(comBorda).css(semBorda)
+
         $('main').children().css(comBorda).css(semBorda)
+
         $('body').find('a').css(comBorda).css(semBorda)
+
         const elementoDOM = document.getElementsByClassName('menu')
         $(elementoDOM).css(comBorda)
+
         $('main').children().each((i, e) => $(e).css(comBorda).css(semBorda))
         $('li').each((i, e) => {
             $(e).css(comBorda)
