@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // import Multi, { BoaTarde } from "./componentes/Multiplos";
-import Saudacao from "./componentes/Saudacao";
+// import Saudacao from "./componentes/Saudacao";
+import Pai from "./componentes/Pai";
 
 // ReactDOM.render(
 //   <div>
@@ -12,9 +13,16 @@ import Saudacao from "./componentes/Saudacao";
 //   document.getElementById("root")
 // );
 
+// ReactDOM.render(
+//   <div>
+//     <Saudacao tipo='Bom dia' nome="Ana" />
+//   </div>,
+//   document.getElementById("root")
+// );
+
 ReactDOM.render(
   <div>
-    <Saudacao tipo='Bom dia' nome="Ana" />
+    <Pai nome="Julio" sobrenome="Barboza" />
   </div>,
   document.getElementById("root")
 );
