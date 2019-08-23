@@ -1,13 +1,19 @@
 {
-    "users": [{
-        "id": 1,
-        "nome": "Athur Oliveira",
-        "email": "ao@coder.com.br"
+  "users": [
+    {
+      "id": 1,
+      "nome": "Athur Oliveira",
+      "email": "ao@coder.com.br"
     },
     {
-        "id": 2,
-        "nome": "Marco Oliveira",
-        "email": "Ma@coder.com.br"
+      "id": 2,
+      "nome": "Marco Oliveira",
+      "email": "Ma@coder.com.br"
+    },
+    {
+      "name": "Ana ",
+      "email": "Ana@email",
+      "id": 3
     }
-]
+  ]
 }
