@@ -37,9 +37,9 @@ export default class UserCrud extends Component {
     });
   }
 
-  getUpdateList(user) {
+  getUpdateList(user, add = true) {
     const list = this.state.list.filter(u => u.id !== user.id);
-    if (user) list.unshift(user);
+    if (add) list.unshift(user);
     return list;
   }
 
@@ -107,39 +107,56 @@ export default class UserCrud extends Component {
 
   remove(user) {
     axios.delete(`${baseUrl}/${user.id}`).then(resp => {
-      const list = this.getUpdateList(null);
+      const list = this.getUpdateList(user, false);
       this.setState({ list });
     });
   }
 
   renderTable() {
-      return(
-          <table className="table mt-4">
-              <thead>
-                  <tr>
-                      <th>Nome</th>
-                      <th>Email</th>
-                      <th>Ações</th>
-                  </tr>
-              </thead>
-              <tbody>
-                    {this.renderRows()}
-              </tbody>
-          </table>
-      )
+    return (
+      <table className="table mt-4">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>{this.renderRows()}</tbody>
+      </table>
+    );
   }
 
   renderRows() {
-      return this.state.list.map(user => {
-          return(
-              <tr key>
-
-              </tr>
-          )
-      })
+    return this.state.list.map(user => {
+      return (
+        <tr key={user.id}>
+          <td>{user.id}</td>
+          <td>{user.name}</td>
+          <td>{user.email}</td>
+          <td>
+            <button className="btn btn-warning" onClick={() => this.load(user)}>
+              <i className="fa fa-pencil" />
+            </button>
+            <button
+              className="btn btn-danger ml-2"
+              onClick={() => this.remove(user)}
+            >
+              <i className="fa fa-trash" />
+            </button>
+          </td>
+        </tr>
+      );
+    });
   }
 
   render() {
-    return <Main {...headerProps}>{this.renderForm()}</Main>;
+    return( 
+    <Main {...headerProps}>
+    {this.renderForm()}
+    {this.renderTable()}
+    </Main>
+    )
   }
 }

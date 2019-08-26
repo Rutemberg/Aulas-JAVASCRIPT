@@ -3,17 +3,14 @@
     {
       "id": 1,
       "nome": "Athur Oliveira",
-      "email": "ao@coder.com.br"
+      "email": "ao@coder.com.br",
+      "name": "Coder"
     },
     {
       "id": 2,
       "nome": "Marco Oliveira",
-      "email": "Ma@coder.com.br"
-    },
-    {
-      "name": "Ana ",
-      "email": "Ana@email",
-      "id": 3
+      "email": "Ma@coder.com.br",
+      "name": "Maria"
     }
   ]
 }
