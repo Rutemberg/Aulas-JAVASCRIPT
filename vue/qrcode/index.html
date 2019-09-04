@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <script src="js/vue.min.js"></script>
     <script src="js/qrious.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <title>Gerador de QRCode</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <div>
+        <input type="text" v-model="SSID" placeholder="SSID" />
+        <input type="text" v-model="Senha" placeholder="Senha" />
+        <select v-model="Tipo">
+            <option value="">Senha</option>
+            <option value="WAP">WAP</option>
+            <option value="Sem Encriptação">Sem senha</option>
+        </select>
+      </div>
+
+      <div v-if="SSID">
+        <div v-if="Tipo" class="output">
+          <img :src="newQRCode" alt="QRCode" />
+
+      </div>
+    </div>
 
     <script>
-        // ...
+      new Vue({
+        el: "#app",
+        data: {
+          title: "Gerador de QRCode WIFI",
+          SSID: "",
+          Senha: "",
+          Tipo: "",
+          qrcode: new QRious({ size: 300 })
+        },
+        computed: {
+          newQRCode() {
+            this.qrcode.value = `WIFI:S:${this.SSID};T:${this.Tipo};P:${this.Senha}`;
+            return this.qrcode.toDataURL();
+          }
+        }
+      });
     </script>
-</body>
-
+  </body>
 </html>
