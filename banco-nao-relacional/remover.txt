@@ -1,0 +1,6 @@
+db.estados.remove({sigla: "AC"})
+db.estados.remove({populacao: {$exists: false}}, 1)
+
+db.estados.update({sigla: "RJ"}, {$set: {populacao: 564544545}})
+
+db.estados.remove({populacao: {$lt: 20000000}}) remove estado com populacao menor que 20 milhao

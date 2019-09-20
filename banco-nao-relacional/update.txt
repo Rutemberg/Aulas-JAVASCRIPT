@@ -1,0 +1,4 @@
+db.estados.update({sigla: "SP"}, {$set: {populacao: 45454454}})
+db.estados.update({sigla: "AC"}, {$set: {cidades: [{nome: "Sergipe"}]}})
+
+db.estados.update({sigla: "SP"}, {$push: {cidades: {nome: "Santos", populacao: 45874544}}})

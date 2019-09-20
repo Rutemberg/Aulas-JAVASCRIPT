@@ -2,7 +2,7 @@ db.estados.insert({nome: "Acre", sigla: "AC", regiao: "Norte"})
 db.estados.save({nome: "Acre", sigla: "AC", regiao: "Norte", populacao: 3254877})
 db.estados.find()
 db.estados.find().pretty()
-db.estados.insert({ nome: "Rio de Janeiro", sigla: "RJ", regiao: "Sudeste", cidades: [{ nome: "Niteroi", area: 135.9, populacao: 2547896 }]})
+db.estados.insert({ nome: "Rio de Janeiro", sigla: "RJ", regiao: "Sudeste", cidades: [{ _id: ObjectId(), nome: "Niteroi", area: 135.9, populacao: 2547896 }]})
 db.help()
 
 db.estados.save({
