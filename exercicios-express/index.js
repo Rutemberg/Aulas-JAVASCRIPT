@@ -4,7 +4,7 @@ const app = express();
 const saudacao = require("./saudacaoMID");
 const usuarioApi = require("./api/usuario");
 const produtoApi = require("./api/produto");
-produtoApi(app, "com param!");
+produtoApi (app, "com param!");
 
 app.post("/usuario", usuarioApi.salvar);
 app.get("/usuario", usuarioApi.obter);
