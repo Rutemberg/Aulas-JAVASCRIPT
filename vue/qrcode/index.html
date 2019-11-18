@@ -16,7 +16,7 @@
         <input type="text" v-model="Senha" placeholder="Senha" />
         <select v-model="Tipo">
             <option value="">Senha</option>
-            <option value="WAP">WAP</option>
+            <option value="WPA">WPA</option>
             <option value="Sem Encriptação">Sem senha</option>
         </select>
       </div>
@@ -40,7 +40,7 @@
         },
         computed: {
           newQRCode() {
-            this.qrcode.value = `WIFI:S:${this.SSID};T:${this.Tipo};P:${this.Senha}`;
+            this.qrcode.value = `WIFI:S:${this.SSID};T:${this.Tipo};P:${this.Senha};;`;
             return this.qrcode.toDataURL();
           }
         }
